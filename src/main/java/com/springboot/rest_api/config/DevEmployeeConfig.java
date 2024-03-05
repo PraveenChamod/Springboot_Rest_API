@@ -1,18 +1,20 @@
 package com.springboot.rest_api.config;
 
 import com.springboot.rest_api.model.Employee;
-import com.springboot.rest_api.repository.EmployeeRepository;
+import com.springboot.rest_api.repository.DevRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
 @Configuration
-public class EmployeeConfig {
+@Profile("dev")
+public class DevEmployeeConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(EmployeeRepository repository) {
+    CommandLineRunner commandLineRunner(DevRepository repository) {
         return args -> {
             Employee james = new Employee(
                     "James White",
